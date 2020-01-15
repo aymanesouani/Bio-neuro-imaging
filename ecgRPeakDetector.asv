@@ -30,30 +30,19 @@ num_lp = [1 0 0 0 0 0 -1];
 num_lp = conv(num_lp, num_lp);
 den_lp = [1 -1];
 den_lp = conv(den_lp, den_lp);
-ecg_L = filter(num_lp, den_lp, x);
+ecg_L = conv();
 
 % 2. Highpass filtering (the output signal is denoted ecg_BP)
-num_bp = zeros(1,33);
-num_bp(1,1)=-1;
-num_bp(1,17) = 32;
-num_bp(1,18) = -32;
-num_bp(1,33) = 1;
-den_bp = [1 -1];
-ecg_BP = filter(num_bp, den_bp, x);
+ecg_BP = ;
 
 % 3. Derivative (the output signal is denoted ecg_D)
-num_d = 1/12 * [-1 8 0 -8 1];
-den_d = 1;
-ecg_D = filter(num_d, den_d, x) ;
+ecg_D = ;
 
 % 4. Square (the output signal is denoted ecg_Q)
-ecg_Q = x.^2 ;
+
 
 % 5. MA (the output signal is denoted ecg_MA)
-samples = 30; % BETWEEN 35 AND 40
-num_ma = 1/samples * ones(1, samples);
-den_ma = 1;
-ecg_MA = filter(num_ma, den_ma, x) ;
+ecg_MA = ;
 
 % 6. Detection of peaks on MA signal
 [peakDetected_MA, locDetected_MA, ...

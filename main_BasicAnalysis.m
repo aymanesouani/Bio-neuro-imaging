@@ -23,5 +23,6 @@ xlabel('Frequency')
 ylabel('Power')
 
 %% Spectrogram
-noverlap = 500;
+noverlap = 5;
+figure()
 spectrogram(x, hanning(2024),noverlap,[], Fs)

@@ -16,7 +16,13 @@ Ts   = 1/Fs;
 
 
 %% R peak detection
-
+nbL = ;
+%   _ nbL = number of taps in the lowpass filter
+%   _ nbH = number of taps in the highpass filter
+%   _ nbMA = number of taps in the MA filter
+%   _ prec = half-width of the interval precision to define simultaneous R
+%            peaks
+[rPeak, rPeak_BP, rPeak_MA] = ecgRPeakDetector(x, nbL, nbH, nbMA, prec, Fs);
 
 
 %% Epoching each beat
